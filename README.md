@@ -38,14 +38,14 @@ nixos-generate --format iso --configuration ./configuration.nix -o result
 
         default = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ 
+          modules = [
             ./hosts/primary/configuration.nix
           ];
         };
 
         exampleIso = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = [ 
+          modules = [
             ./hosts/isoimage/configuration.nix
           ];
         };
@@ -61,10 +61,10 @@ nixos-generate --format iso --configuration ./configuration.nix -o result
 { pkgs, modulesPath, ... }: {
 
   imports = [
-    "\${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
-}                                                                                  
+}
 ```
